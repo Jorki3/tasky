@@ -18,6 +18,7 @@
 
         <ul class="space-y-2 font-medium">
             <x-menu-item href="dashboard" title="Dashboard" />
+            <x-menu-item href="projects" title="Project" />
         </ul>
     </div>
 </aside>
