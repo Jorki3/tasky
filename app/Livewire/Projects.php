@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Projects extends Component
@@ -13,6 +15,8 @@ class Projects extends Component
 
     public function render()
     {
-        return view('livewire.projects');
+        return view('livewire.projects', [
+            'projects' => Project::where('user_id', Auth::id())->get()
+        ]);
     }
 }

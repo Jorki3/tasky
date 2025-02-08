@@ -9,20 +9,9 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <x-card href="id" title="Project Title"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto reprehenderit voluptatum ea molestias laudantium
-    sint" />
-
-        <x-card href="id" title="Project Title"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto reprehenderit voluptatum ea molestias laudantium
-    sint" />
-
-        <x-card href="id" title="Project Title"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto reprehenderit voluptatum ea molestias laudantium
-    sint" />
-
-        <x-card href="id" title="Project Title"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto reprehenderit voluptatum ea molestias laudantium
-    sint" />
+        @foreach ($projects as $project)
+            <x-card href="/project/{{ $project->id }}" title="{{ $project->name }}"
+                description="{{ $project->description }}" />
+        @endforeach
     </div>
 </div>
