@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ProjectForm;
 use App\Livewire\Projects;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/projects', Projects::class)->name('projects');
+    Route::get('/create-project', ProjectForm::class)->name('create-project');
 });
