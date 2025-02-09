@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-4">
     <div class="grid grid-rows-1 gap-4 md:grid-cols-3">
         <div class="md:col-span-2">
             <div class="flex space-x-8">
@@ -39,6 +39,5 @@
         </div>
     </div>
 
-
-    {{-- TODO: Tasks --}}
+    <livewire:task-list :$project />
 </div>
