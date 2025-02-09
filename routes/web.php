@@ -3,6 +3,7 @@
 use App\Livewire\Project;
 use App\Livewire\ProjectForm;
 use App\Livewire\Projects;
+use App\Livewire\TaskForm;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,4 +23,6 @@ Route::middleware([
     Route::get('/create-project', ProjectForm::class)->name('create-project');
     Route::get('/project/edit/{id}', ProjectForm::class)->name('edit-project');
     Route::get('/project/{id}', Project::class)->name('project');
+
+    Route::get('/create-task', TaskForm::class)->name('create-task');
 });

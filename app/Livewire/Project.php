@@ -22,6 +22,11 @@ class Project extends Component
         $this->redirectRoute('projects');
     }
 
+    public function newTask()
+    {
+        $this->redirectRoute('create-task');
+    }
+
     public function mount($id)
     {
         $this->project = ModelsProject::firstWhere('id', $id);
