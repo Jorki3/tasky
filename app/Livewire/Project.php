@@ -24,7 +24,8 @@ class Project extends Component
 
     public function newTask()
     {
-        $this->redirectRoute('create-task');
+        $id = $this->project->id;
+        $this->redirectRoute('create-task', ['project' => $id]);
     }
 
     public function mount($id)
