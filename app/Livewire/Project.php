@@ -9,6 +9,13 @@ class Project extends Component
 {
     public ModelsProject $project;
 
+    public function edit()
+    {
+        $id = $this->project->id;
+
+        $this->redirectRoute('edit-project', ['id' => $id]);
+    }
+
     public function mount($id)
     {
         $this->project = ModelsProject::firstWhere('id', $id);

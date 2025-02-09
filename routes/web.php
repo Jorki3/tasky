@@ -20,5 +20,6 @@ Route::middleware([
 
     Route::get('/projects', Projects::class)->name('projects');
     Route::get('/create-project', ProjectForm::class)->name('create-project');
+    Route::get('/project/edit/{id}', ProjectForm::class)->name('edit-project');
     Route::get('/project/{id}', Project::class)->name('project');
 });
