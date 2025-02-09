@@ -16,6 +16,12 @@ class Project extends Component
         $this->redirectRoute('edit-project', ['id' => $id]);
     }
 
+    public function delete()
+    {
+        $this->project->delete();
+        $this->redirectRoute('projects');
+    }
+
     public function mount($id)
     {
         $this->project = ModelsProject::firstWhere('id', $id);
