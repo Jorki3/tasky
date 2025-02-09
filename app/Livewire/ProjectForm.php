@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\ProjectStatus;
 use App\Livewire\Forms\ProjectForm as FormsProjectForm;
 use App\Models\Project;
 use Livewire\Component;
@@ -9,8 +10,10 @@ use Livewire\Component;
 class ProjectForm extends Component
 {
     public FormsProjectForm $form;
+
     public $action = 'Create';
     public $method = "create";
+
     public $id;
 
     public function create()
@@ -40,6 +43,8 @@ class ProjectForm extends Component
 
     public function render()
     {
-        return view('livewire.project-form');
+        return view('livewire.project-form', [
+            'statuses' => ProjectStatus::cases()
+        ]);
     }
 }
