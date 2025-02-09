@@ -38,14 +38,19 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex items-center">
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> {{ $task->status }}
+                            {{-- <div class="h-2.5 w-2.5 rounded-full me-2"></div> --}}
+                            {{ $task->status->label() }}
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         {{ $task->due_date }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 space-x-8">
                         <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            View
+                        </button>
+
+                        <button class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
                             Edit
                         </button>
                     </td>
