@@ -22,6 +22,11 @@ class TaskList extends Component
         return Task::where('project_id', $this->project->id)->get();
     }
 
+    public function edit($task)
+    {
+        $this->redirectRoute('edit-task', ['project' => $this->project->id, 'task' => $task]);
+    }
+
     public function render()
     {
         return view('livewire.task-list', [

@@ -37,20 +37,18 @@
                         {{ $task->description }}
                     </td>
                     <td class="px-6 py-4">
-                        <div class="flex items-center">
-                            {{-- <div class="h-2.5 w-2.5 rounded-full me-2"></div> --}}
-                            {{ $task->status->label() }}
-                        </div>
+                        {{ $task->status->label() }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $task->due_date }}
                     </td>
-                    <td class="px-6 py-4 space-x-8">
-                        <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    <td class="flex flex-col px-6 py-4 md:flex-row">
+                        <button class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">
                             View
                         </button>
 
-                        <button class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
+                        <button wire:click="edit('{{ $task->id }}')"
+                            class="flex-1 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
                             Edit
                         </button>
                     </td>

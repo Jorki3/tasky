@@ -25,4 +25,5 @@ Route::middleware([
     Route::get('/project/{id}', Project::class)->name('project');
 
     Route::get('/project/{project}/create-task', TaskForm::class)->name('create-task');
+    Route::get('/project/{project}/task/{task}', TaskForm::class)->name('edit-task');
 });

@@ -24,4 +24,24 @@ class TaskForm extends Form
             'project_id' => $projectId,
         ]);
     }
+
+    public function update()
+    {
+        $this->task->update([
+            'name' => $this->name,
+            'description' => $this->description,
+            'due_date' => $this->due_date,
+            'status' => $this->status
+        ]);
+    }
+
+    public function set(Task $task)
+    {
+        $this->task = $task;
+
+        $this->name = $task->name;
+        $this->description = $task->description;
+        $this->due_date = $task->due_date;
+        $this->status = $task->status;
+    }
 }
