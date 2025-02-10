@@ -3,6 +3,7 @@
 use App\Livewire\Project;
 use App\Livewire\ProjectForm;
 use App\Livewire\Projects;
+use App\Livewire\Task;
 use App\Livewire\TaskForm;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::middleware([
 
     Route::get('/project/{project}/create-task', TaskForm::class)->name('create-task');
     Route::get('/project/{project}/task/{task}', TaskForm::class)->name('edit-task');
+
+    Route::get('/task/{id}', Task::class)->name('task');
 });

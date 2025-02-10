@@ -18,4 +18,14 @@ enum TaskStatus: int
             self::COMPLETED => 'Completed',
         };
     }
+
+    public function styles(): string
+    {
+        return match ($this) {
+            self::DRAFT => 'text-zinc-500',
+            self::TODO => 'text-blue-500',
+            self::INPROGRESS => 'text-yellow-500',
+            self::COMPLETED => 'text-green-500',
+        };
+    }
 }

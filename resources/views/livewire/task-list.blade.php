@@ -43,7 +43,8 @@
                         {{ $task->due_date }}
                     </td>
                     <td class="flex flex-col px-6 py-4 md:flex-row">
-                        <button class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        <button wire:click="watchTask('{{ $task->id }}')"
+                            class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">
                             View
                         </button>
 
