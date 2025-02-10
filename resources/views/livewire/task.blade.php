@@ -32,6 +32,7 @@
         </div>
     </div>
 
-    {{-- TODO: Task history --}}
     {{-- TODO: Task Comments --}}
+
+    <livewire:task-history :$task>
 </div>
