@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Task;
 
+use App\Models\Task;
 use App\Models\TaskHistory as ModelsTaskHistory;
 use Livewire\Component;
 
 class TaskHistory extends Component
 {
-    public $task;
+    public Task $task;
 
     public function read()
     {
@@ -16,7 +17,7 @@ class TaskHistory extends Component
 
     public function render()
     {
-        return view('livewire.task-history', [
+        return view('livewire.task.task-history', [
             'histories' => $this->read()
         ]);
     }
