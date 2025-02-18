@@ -28,7 +28,7 @@ class TaskForm extends Component
     public function edit()
     {
         $this->form->update();
-        $this->redirectRoute('project', ['id' => $this->project->id]);
+        $this->redirectRoute('task', ['id' => $this->form->task->id]);
     }
 
     public function mount($project, $task = null)
