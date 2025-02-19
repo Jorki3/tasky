@@ -18,7 +18,7 @@
 
         <ul class="space-y-2 font-medium">
             <x-menu-item href="dashboard" title="Dashboard" />
-            <x-menu-item href="projects" title="Project" />
+            <x-menu-item href="projects" title="Projects" />
         </ul>
     </div>
 </aside>

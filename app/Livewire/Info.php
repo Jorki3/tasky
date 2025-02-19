@@ -12,6 +12,7 @@ class Info extends Component
     public ?Project $project = null;
 
     public $model;
+    public $breadcrumbs;
     public $isProject = false;
 
     public function edit()
@@ -51,11 +52,28 @@ class Info extends Component
         if ($this->project) {
             $this->model = $this->project;
             $this->isProject = true;
+        } else {
+            $this->model = $this->task;
+        }
 
+        $this->generateBreadcrumbs();
+    }
+
+    public function generateBreadcrumbs()
+    {
+        $model = $this->model;
+
+        if ($this->isProject) {
+            $this->breadcrumbs = [
+                'project' => $model
+            ];
             return;
         }
 
-        $this->model = $this->task;
+        $this->breadcrumbs = [
+            'project' => $model->project,
+            'task' => $model,
+        ];
     }
 
     public function render()
