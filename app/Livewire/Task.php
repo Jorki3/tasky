@@ -8,6 +8,7 @@ use Livewire\Component;
 class Task extends Component
 {
     public $task;
+    public $project = null;
 
     public function mount($id)
     {

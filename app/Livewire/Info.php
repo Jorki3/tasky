@@ -8,38 +8,43 @@ use Livewire\Component;
 
 class Info extends Component
 {
-    public ?Task $task = null;
-    public ?Project $project = null;
-
     public $model;
-    public $breadcrumbs;
+    public $breadcrumbs = [];
     public $isProject = false;
+
+    public function mount(?Project $project = null, Task $task = null)
+    {
+        $this->isProject = count($project->getAttributes()) === 0 ? false : true;
+        $this->model = $this->isProject ? $project : $task;
+        $this->generateBreadcrumbs();
+    }
+
+    public function generateBreadcrumbs()
+    {
+        $this->breadcrumbs = $this->isProject
+            ? ['project' => $this->model]
+            : ['project' => $this->model->project, 'task' => $this->model];
+    }
 
     public function edit()
     {
-        $model = $this->model;
+        $route = $this->isProject ? 'edit-project' : 'edit-task';
+        $params = $this->isProject
+            ? ['id' => $this->model->id]
+            : ['project' => $this->model->project_id, 'task' => $this->model->id];
 
-        if ($this->isProject) {
-            $this->redirectRoute('edit-project', ['id' => $model->id]);
-
-            return;
-        }
-
-        $this->redirectRoute('edit-task', ['project' => $model->project_id, 'task' => $model->id]);
+        $this->redirectRoute($route, $params);
     }
 
     public function delete()
     {
-        $project_id = !$this->isProject ? $this->model->project_id : '';
+        $project_id = $this->isProject ? null : $this->model->project_id;
         $this->model->delete();
 
-        if ($this->isProject) {
-            $this->redirectRoute('projects');
+        $route = $this->isProject ? 'projects' : 'project';
+        $params = $this->isProject ? [] : ['id' => $project_id];
 
-            return;
-        }
-
-        $this->redirectRoute('project', ['id' => $project_id]);
+        $this->redirectRoute($route, $params);
     }
 
     public function newTask()
@@ -47,37 +52,12 @@ class Info extends Component
         $this->redirectRoute('create-task', ['project' => $this->model->id]);
     }
 
-    public function mount()
-    {
-        if ($this->project) {
-            $this->model = $this->project;
-            $this->isProject = true;
-        } else {
-            $this->model = $this->task;
-        }
-
-        $this->generateBreadcrumbs();
-    }
-
-    public function generateBreadcrumbs()
-    {
-        $model = $this->model;
-
-        if ($this->isProject) {
-            $this->breadcrumbs = [
-                'project' => $model
-            ];
-            return;
-        }
-
-        $this->breadcrumbs = [
-            'project' => $model->project,
-            'task' => $model,
-        ];
-    }
-
     public function render()
     {
-        return view('livewire.info');
+        return view('livewire.info', [
+            'breadcrumbs' => $this->breadcrumbs,
+            'model' => $this->model,
+            'isProject' => $this->isProject,
+        ]);
     }
 }
