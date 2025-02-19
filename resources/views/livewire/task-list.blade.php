@@ -29,27 +29,22 @@
         <tbody>
             @foreach ($tasks as $task)
                 <tr
-                    class="border-b bg-zinc-100 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700">
-                    <td class="px-6 py-4">
+                    class="border-b bg-zinc-100 hover:cursor-pointer border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700">
+                    <td class="px-6 py-4" wire:click="watchTask('{{ $task->id }}')">
                         {{ $task->name }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4" wire:click="watchTask('{{ $task->id }}')">
                         {{ $task->description }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4" wire:click="watchTask('{{ $task->id }}')">
                         {{ $task->status->label() }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4" wire:click="watchTask('{{ $task->id }}')">
                         {{ $task->due_date }}
                     </td>
-                    <td class="flex flex-col px-6 py-4 md:flex-row">
-                        <button wire:click="watchTask('{{ $task->id }}')"
-                            class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                            View
-                        </button>
-
+                    <td class="px-6 py-4">
                         <button wire:click="edit('{{ $task->id }}')"
-                            class="flex-1 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
+                            class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
                             Edit
                         </button>
                     </td>

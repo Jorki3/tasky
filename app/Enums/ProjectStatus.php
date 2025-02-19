@@ -18,7 +18,7 @@ enum ProjectStatus: int
     public function styles(): string
     {
         return match ($this) {
-            self::INPROGRESS => 'text-yellow-500',
+            self::INPROGRESS => 'text-blue-500',
             self::COMPLETED => 'text-green-500',
         };
     }
