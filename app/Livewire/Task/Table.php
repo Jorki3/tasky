@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Task;
 
 use App\Models\Task;
 use Livewire\Component;
 
-class TaskList extends Component
+class Table extends Component
 {
     public $project;
 
@@ -34,7 +34,7 @@ class TaskList extends Component
 
     public function render()
     {
-        return view('livewire.task-list', [
+        return view('livewire.task.table', [
             'tasks' => $this->read()
         ]);
     }

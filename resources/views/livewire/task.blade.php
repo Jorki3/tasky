@@ -1,5 +1,5 @@
 <div class="space-y-4">
     <livewire:info :$task />
 
-    <livewire:task.task-history :$task />
+    <livewire:task.history :$task />
 </div>
